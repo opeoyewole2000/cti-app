@@ -1,0 +1,65 @@
+
+
+
+    {% extends "mainapp/header.html" %}
+
+
+     {% block content %}
+    </br>
+    </br>
+     </br> </br> </br>
+
+    <div class="row" style="">
+        <div class="col-2">
+
+
+  </div>
+  <div class="col-8">
+  <h2>Hey Welcome to my website</h2>
+      <br><br>
+      <blockquote>Here, you can extract cyber threat intelligence and gain quick insights on the emerging and existing cyber threat emanating from Darknet marketplaces</blockquote>
+
+      <blockquote>Please Choose from any of the availabe Darknet markets to explore</blockquote>
+      <br><br>
+
+  <form method="get" action="{% url 'searchResults' %}"> <!--search is search.html-->
+  <div class="form-row">
+    <div class="col-7">
+      <input type="text" name="q" class="form-control" placeholder="Search Keyword e.g Exploit" value="{{request.GET.q}}" required>
+    </div>
+   <div class="form-group">
+    <select class="custom-select" name="mrkNF"  required> <!--mrkNF means marketNameForm-->
+      <option value="1" name="market1">Agora</option>
+      <option value="2" name="market2">Real Deal</option>
+      <option value="3" name="market3">Hansa</option>
+        <option value="4" name="market4">Valhala</option>
+        <option value="5" name="market5">Tochka</option>
+        <option value="6" name="market1">Alpha Bay</option>
+      <option value="7" name="market2">EVO</option>
+      <option value="8" name="market3">Dream Market</option>
+        <option value="9" name="market4">ADM</option>
+        <option value="10" name="market5">Oasis</option>
+    </select>
+    <div class="invalid-feedback">Example invalid custom select feedback</div>
+  </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-2" value="Search">Search</button>
+    </div>
+  </div>
+</form>
+
+  </div>
+  <div class="col-2">
+
+  <!--{% include "mainapp/includes/htmlsnippet.html" %}-->
+  </div>
+</div>
+
+
+
+
+
+    {% endblock %}
+
+
+

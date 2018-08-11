@@ -1,0 +1,107 @@
+{% extends "mainapp/header.html" %}
+{% load static from staticfiles %}
+
+
+{% block content %}
+
+
+<br><br>
+ <div class="row" style="">
+        <div class="col-2">
+
+
+  </div>
+  <div class="col-8">
+
+
+
+   <form method="get" action="{% url 'searchResults' %}"> <!--search is search.html-->
+  <div class="form-row">
+    <div class="col-7">
+      <input type="text" name="q" class="form-control" placeholder="Search Keyword e.g Exploit" value="{{request.GET.q}}" required>
+    </div>
+   <div class="form-group">
+    <select class="custom-select" name="mrkNF"  required> <!--mrkNF means marketNameForm-->
+      <option value="1" name="market1">Agora</option>
+      <option value="2" name="market2">Real Deal</option>
+      <option value="3" name="market3">Hansa</option>
+        <option value="4" name="market4">Valhala</option>
+        <option value="5" name="market5">Tochka</option>
+        <option value="6" name="market1">Alpha Bay</option>
+      <option value="7" name="market2">EVO</option>
+      <option value="8" name="market3">Dream Market</option>
+        <option value="9" name="market4">ADM</option>
+        <option value="10" name="market5">Oasis</option>
+
+    </select>
+    <div class="invalid-feedback">Example invalid custom select feedback</div>
+  </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-2" value="Search Keyword e.g Exploit">Search</button>
+    </div>
+  </div>
+</form>
+
+
+      <br><br>
+  </div>
+  <div class="col-2">
+  </div>
+    </div>
+
+ <div class="row">
+
+     <div class="col-1"></div>
+
+     <div class="col-7">
+
+         <h5 >Main/Trending Topics extracted from <b>{{market_name}}</b> market </h5>
+         <br>
+
+<img src="{% static word_cloud_path %}" >
+     </div>
+
+     <div class="col-3">
+
+
+
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Top {{features_length}} Topics</th>
+
+            </tr>
+        </thead>
+        <tbody>
+          {% for features in top_features %}
+            <tr>
+                <td>{{features}}</td>
+
+            </tr>
+
+
+      {% endfor %}
+        </tbody>
+</table>
+
+
+
+
+
+     </div>
+ </div>
+<br><br>
+
+
+
+
+
+
+<br><br>
+<!--{{word_cloud_path}}-->
+<!--{{market_list}}-->
+<!--{{market_name}}-->
+
+
+
+{% endblock %}

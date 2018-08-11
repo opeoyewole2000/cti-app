@@ -1,0 +1,12 @@
+{% extends "mainapp/header.html" %}
+
+{% block content%}
+
+<!--object_list is default object name for database date from the model-->
+
+{% for post in object_list %}
+<h2>{{post.date}}<a href="{% url 'resultsView' pk=post.id %}">{{post.description}}</a></h2>
+{% endfor %}
+
+
+{% endblock %}

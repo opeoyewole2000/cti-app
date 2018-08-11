@@ -1,0 +1,173 @@
+ {% extends "mainapp/header.html" %}
+
+
+     {% block content %}
+    </br>
+    </br>
+
+  <h2 style="text-align:center">Analysis</h2>
+ <br>
+
+ <div class="row">
+
+     <div class="col-2"></div>
+
+     <div class="col-8">
+         <blockquote><b>Please Choose from any of the availabe Darknet markets to explore</b></blockquote>
+<br><br>
+ {% if messages %}
+ {% for message in messages %}
+         <div class="alert alert-danger" role="alert"><b>{{message}}</b></div>
+{% endfor %}
+ {% endif %}
+
+     </div>
+
+     <div class="col-4"></div>
+ </div>
+
+<br>
+
+    <div class="row" style="">
+
+
+        <div class="col-2">
+
+
+  </div>
+
+
+
+
+  <div class="col-4">
+
+
+      <!--<p>Accuracy is {{accuracy}}</p>-->
+
+<div class="card">
+  <div class="card-header">Classification</div>
+  <div class="card-body">
+    <form method="post" enctype="multipart/form-data" action="{% url 'analysis_mod1' %}">
+{% csrf_token %}
+        <!--{{form.as_p}}-->
+          <!--<input type="file" name="file" />-->
+         <!--<br><br>-->
+         <!--<button type="submit"  class="btn btn-primary mb-2" value="analyze_to_db">Analyze Data and Save to db</button>-->
+
+
+
+      <div class="form-group">
+    <label class="col-md-3 col-sm-3 col-xs-12 control-label">File: </label>
+    <div class="col-md-8">
+        <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+<br>
+        <div class="form-group">
+
+            <p>Choose Market :</p>
+    <select class="custom-select" name="market_tag"  required>
+      <option value="1" name="market1">Agora</option>
+      <option value="2" name="market2">Real Deal</option>
+      <option value="3" name="market3">Hansa</option>
+        <option value="4" name="market4">Valhala</option>
+        <option value="5" name="market5">Tochka</option>
+     <option value="6" name="market6">Alpha Bay</option>
+      <option value="7" name="market7">EVO</option>
+      <option value="8" name="market8">Dream Market</option>
+        <option value="9" name="market9">ADM</option>
+        <option value="10" name="market10">Oasis</option>
+
+    </select>
+    <div class="invalid-feedback">Example invalid custom select feedback</div>
+  </div>
+
+
+
+    </div>
+          <br><br>
+         <button type="submit"   class="btn btn-primary mb-2" value="analyze_to_db">Extract Relevant Data</button>
+</div>
+
+
+
+</form>
+
+
+
+
+
+
+  </div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+  <div class="col-4">
+
+
+      <div class="card">
+  <div class="card-header">Topic Extraction</div>
+  <div class="card-body">
+ <form method="post"  action="{% url 'analysis_mod2' %}">
+{% csrf_token %}
+
+ <div class="form-group">
+
+            <p>Choose Market to extract :</p>
+    <select class="custom-select" name="market_name"  required>
+      <option value="agora" name="market1">Agora</option>
+      <option value="real_deal" name="market2">Real Deal</option>
+      <option value="hansa" name="market3">Hansa</option>
+        <option value="valhala" name="market4">Valhala</option>
+        <option value="tochka" name="market5">Tochka</option>
+     <option value="alpha_bay" name="market6">Alpha Bay</option>
+      <option value="evo" name="market7">EVO</option>
+      <option value="dream_market" name="market8">Dream Market</option>
+        <option value="adm" name="market9">ADM</option>
+        <option value="oasis" name="market10">Oasis</option>
+
+    </select>
+    <div class="invalid-feedback">Example invalid custom select feedback</div>
+     <br><br>
+  <input type="text" name="top_n" class="form-control" placeholder="number of topics" value="{{request.POST.top_n}}" required>
+  </div>
+
+ <button type="submit"  class="btn btn-primary mb-2" value="extract_topics">Extract Topics</button>
+
+ </form>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+</div>
+
+
+ <br><br><br>
+{% endblock %}
+
+
+
+
+

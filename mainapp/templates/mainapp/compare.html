@@ -1,0 +1,15 @@
+{% extends "mainapp/header.html" %}
+
+{% block content %}
+<h3>Compare</h3>
+
+
+
+<h3>{{dataDetail.description}}</h3>
+<h6>{{dataDetail.date}}</h6>
+
+<!--safe here ensures that the output format doesnt come with the tags on the web browser-->
+<h6>{{dataDetail.description|safe|linebreaks}}</h6>
+
+
+{% endblock %}
